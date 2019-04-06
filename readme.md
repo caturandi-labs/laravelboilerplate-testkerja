@@ -2,7 +2,7 @@
 
 ## Aplikasi Boilerplate Untuk Test Kerja
 
-###Cara Menggunakan Aplikasi
+### Cara Menggunakan Aplikasi
 
 1. Clone Repository ini.
 2. Change Directory ke project anda, Jalankan perintah `composer install` pada terminal.
