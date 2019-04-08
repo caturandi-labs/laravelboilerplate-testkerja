@@ -23,3 +23,8 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::resource('categories','CategoryController');
+Route::resource('customers','CustomerController');
+Route::resource('orders','OrderController');
+
+Route::get('api/customers', 'ApiController@customers');
+Route::get('api/city_customer/{id}', 'ApiController@cityCustomer');

@@ -4,6 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
+  <meta name="csrf-token" content="{{ csrf_token() }}">
   <title>@yield('title')</title>
 
   <!-- General CSS Files -->
@@ -22,6 +23,7 @@
   <link href="http://andi.biqinin.com/assets/plugins/datatables/responsive.bootstrap4.min.css" rel="stylesheet" type="text/css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
   <script src="{{ asset('dist/modules/jquery.min.js') }} "></script>
+  <script src="{{ asset('js/vue.js') }}"></script>
 </head>
 
 <body class="layout-2">
@@ -64,23 +66,22 @@
           <div class="sidebar-brand sidebar-gone-show"><a href="dashboard-general.html">TestKerja</a></div>
           <ul class="sidebar-menu">
             <li class="menu-header">Home</li>
-            <li><a href="{{ route('home') }}" class="nav-link"><i class="fas fa-fire"></i><span>Dashboard</span></a></li>
+            <li class="{{ set_active('home') }}"><a href="{{ route('home') }}" class="nav-link"><i class="fas fa-fire"></i><span>Dashboard</span></a></li>
             
             <li class="menu-header">Master</li>
-            <li class="dropdown">
+            <li class="dropdown active">
               <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-columns"></i> <span>Master</span></a>
               <ul class="dropdown-menu">
-                <li><a class="nav-link" href="{{ url('categories') }}">Categories</a></li>
-                <li><a class="nav-link" href="#">Products</a></li>
-                <li><a class="nav-link" href="#">Customers</a></li>
+                <li class="{{ set_active('categories.index') }}"><a class="nav-link" href="{{ route('categories.index') }}">Categories</a></li>
+                <li class="{{ set_active('customers.index') }}"><a class="nav-link" href="{{ route('customers.index') }}">Customers</a></li>
               </ul>
             </li>
             
             <li class="menu-header">Transactions</li>
-            <li class="dropdown">
-              <a href="#" class="nav-link has-dropdown"><i class="far fa-user"></i> <span>Transactions</span></a>
+            <li class="dropdown active">
+              <a href="#" class="nav-link has-dropdown"><i class="fas fa-shopping-cart"></i> <span>Transactions</span></a>
               <ul class="dropdown-menu">
-                <li><a href="auth-forgot-password.html">Orders</a></li> 
+                <li class="{{ set_active('orders.index') }}"><a href="{{ route('orders.index') }}">Orders</a></li> 
               </ul>
             </li>
           </ul>
